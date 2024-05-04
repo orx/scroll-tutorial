@@ -8,6 +8,7 @@
 #undef __SCROLL_IMPL__
 
 #include "Object.h"
+#include "EnemyBug.h"
 
 #define orxBUNDLE_IMPL
 #include "orxBundle.h"
@@ -75,6 +76,8 @@ void binding_of_objects::BindObjects()
 {
   // Bind the Object class to the Object config section
   ScrollBindObject<Object>("Object");
+  // Bind the EnemyBug class to the EnemyBug config section
+  ScrollBindObject<EnemyBug>("O-EnemyBug");
 }
 
 /** Bootstrap function, it is called before config is initialized, allowing for early resource storage definitions

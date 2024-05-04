@@ -212,6 +212,7 @@ ifeq ($(config),bundle64)
 endif
 
 OBJECTS := \
+	$(OBJDIR)/EnemyBug.o \
 	$(OBJDIR)/Object.o \
 	$(OBJDIR)/binding-of-objects.o \
 
@@ -273,6 +274,10 @@ $(GCH): $(PCH)
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) -x c++-header $(ALL_CXXFLAGS) -MMD -MP $(DEFINES) $(INCLUDES) -o "$@" -MF "$(@:%.gch=%.d)" -c "$<"
 endif
+
+$(OBJDIR)/EnemyBug.o: ../../../src/EnemyBug.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
 $(OBJDIR)/Object.o: ../../../src/Object.cpp
 	@echo $(notdir $<)
