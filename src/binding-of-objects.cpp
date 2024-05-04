@@ -9,6 +9,7 @@
 
 #include "Object.h"
 #include "EnemyBug.h"
+#include "Hero.h"
 
 #define orxBUNDLE_IMPL
 #include "orxBundle.h"
@@ -76,8 +77,10 @@ void binding_of_objects::BindObjects()
 {
   // Bind the Object class to the Object config section
   ScrollBindObject<Object>("Object");
-  // Bind the EnemyBug class to the EnemyBug config section
+  // Bind the EnemyBug class to the O-EnemyBug config section
   ScrollBindObject<EnemyBug>("O-EnemyBug");
+  // Bind the Hero class to the O-Hero config section
+  ScrollBindObject<Hero>("O-Hero");
 }
 
 /** Bootstrap function, it is called before config is initialized, allowing for early resource storage definitions

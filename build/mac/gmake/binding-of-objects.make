@@ -215,6 +215,7 @@ OBJECTS := \
 	$(OBJDIR)/EnemyBug.o \
 	$(OBJDIR)/Object.o \
 	$(OBJDIR)/binding-of-objects.o \
+	$(OBJDIR)/Hero.o \
 
 RESOURCES := \
 
@@ -284,6 +285,10 @@ $(OBJDIR)/Object.o: ../../../src/Object.cpp
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
 $(OBJDIR)/binding-of-objects.o: ../../../src/binding-of-objects.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+
+$(OBJDIR)/Hero.o: ../../../src/Hero.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
