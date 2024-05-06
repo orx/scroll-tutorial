@@ -13,25 +13,26 @@ void Hero::OnDelete()
 
 void Hero::Update(const orxCLOCK_INFO &_rstInfo)
 {
-  // Always initialize thy variables
-  orxVECTOR speed = orxVECTOR_0;
+  // Use movement input to initialize a vector to scale movement speed
+  orxVECTOR speed = {
+      // Vector's x component is right - left input strength. It will
+      // be 0.0 if the inputs are either inactive or both equally active.
+      orxInput_GetValue("MoveRight") - orxInput_GetValue("MoveLeft"),
+      // Vector's y component is down - up input strength. It will
+      // be 0.0 if the inputs are either inactive or both equally active.
+      orxInput_GetValue("MoveDown") - orxInput_GetValue("MoveUp"),
+      0.0};
 
-  if (orxInput_IsActive("MoveLeft"))
+  // Normalize the input vector if it has a length > 1
+  if (orxVector_GetSquareSize(&speed) > 1.0)
   {
-    speed.fX = -m_movementSpeed;
+    orxVector_Normalize(&speed, &speed);
   }
-  else if (orxInput_IsActive("MoveUp"))
-  {
-    speed.fY = -m_movementSpeed;
-  }
-  else if (orxInput_IsActive("MoveRight"))
-  {
-    speed.fX = m_movementSpeed;
-  }
-  else if (orxInput_IsActive("MoveDown"))
-  {
-    speed.fY = m_movementSpeed;
-  }
+
+  // Scale the raw input vector by the our movement speed
+  orxVector_Mulf(&speed, &speed, m_movementSpeed);
+
+  // Update our speed
   SetSpeed(speed, false);
 }
 
