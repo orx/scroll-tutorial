@@ -22,7 +22,7 @@ endif
 ifeq ($(config),debuguniv64)
   OBJDIR     = obj/Universal64/Debug
   TARGETDIR  = ../../../bin
-  TARGET     = $(TARGETDIR)/binding-of-objectsd
+  TARGET     = $(TARGETDIR)/BindingOfObjectsd
   DEFINES   += -D__orxDEBUG__
   INCLUDES  += -I$(ORX)/include -I../../../include/Scroll -I../../../include
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
@@ -46,7 +46,7 @@ endif
 ifeq ($(config),profileuniv64)
   OBJDIR     = obj/Universal64/Profile
   TARGETDIR  = ../../../bin
-  TARGET     = $(TARGETDIR)/binding-of-objectsp
+  TARGET     = $(TARGETDIR)/BindingOfObjectsp
   DEFINES   += -D__orxPROFILER__
   INCLUDES  += -I$(ORX)/include -I../../../include/Scroll -I../../../include
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
@@ -70,7 +70,7 @@ endif
 ifeq ($(config),releaseuniv64)
   OBJDIR     = obj/Universal64/Release
   TARGETDIR  = ../../../bin
-  TARGET     = $(TARGETDIR)/binding-of-objects
+  TARGET     = $(TARGETDIR)/BindingOfObjects
   DEFINES   +=
   INCLUDES  += -I$(ORX)/include -I../../../include/Scroll -I../../../include
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
@@ -94,7 +94,7 @@ endif
 ifeq ($(config),bundleuniv64)
   OBJDIR     = obj/Universal64/Bundle
   TARGETDIR  = ../../../bin
-  TARGET     = $(TARGETDIR)/binding-of-objects
+  TARGET     = $(TARGETDIR)/BindingOfObjects
   DEFINES   +=
   INCLUDES  += -I$(ORX)/include -I../../../include/Scroll -I../../../include
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
@@ -118,7 +118,7 @@ endif
 ifeq ($(config),debug64)
   OBJDIR     = obj/x64/Debug
   TARGETDIR  = ../../../bin
-  TARGET     = $(TARGETDIR)/binding-of-objectsd
+  TARGET     = $(TARGETDIR)/BindingOfObjectsd
   DEFINES   += -D__orxDEBUG__
   INCLUDES  += -I$(ORX)/include -I../../../include/Scroll -I../../../include
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
@@ -142,7 +142,7 @@ endif
 ifeq ($(config),profile64)
   OBJDIR     = obj/x64/Profile
   TARGETDIR  = ../../../bin
-  TARGET     = $(TARGETDIR)/binding-of-objectsp
+  TARGET     = $(TARGETDIR)/BindingOfObjectsp
   DEFINES   += -D__orxPROFILER__
   INCLUDES  += -I$(ORX)/include -I../../../include/Scroll -I../../../include
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
@@ -166,7 +166,7 @@ endif
 ifeq ($(config),release64)
   OBJDIR     = obj/x64/Release
   TARGETDIR  = ../../../bin
-  TARGET     = $(TARGETDIR)/binding-of-objects
+  TARGET     = $(TARGETDIR)/BindingOfObjects
   DEFINES   +=
   INCLUDES  += -I$(ORX)/include -I../../../include/Scroll -I../../../include
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
@@ -190,7 +190,7 @@ endif
 ifeq ($(config),bundle64)
   OBJDIR     = obj/x64/Bundle
   TARGETDIR  = ../../../bin
-  TARGET     = $(TARGETDIR)/binding-of-objects
+  TARGET     = $(TARGETDIR)/BindingOfObjects
   DEFINES   +=
   INCLUDES  += -I$(ORX)/include -I../../../include/Scroll -I../../../include
   ALL_CPPFLAGS  += $(CPPFLAGS) -MMD -MP $(DEFINES) $(INCLUDES)
@@ -214,7 +214,7 @@ endif
 OBJECTS := \
 	$(OBJDIR)/EnemyBug.o \
 	$(OBJDIR)/Object.o \
-	$(OBJDIR)/binding-of-objects.o \
+	$(OBJDIR)/BindingOfObjects.o \
 	$(OBJDIR)/Hero.o \
 
 RESOURCES := \
@@ -233,7 +233,7 @@ all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
 	@:
 
 $(TARGET): $(GCH) $(OBJECTS) $(LDDEPS) $(RESOURCES)
-	@echo Linking binding-of-objects
+	@echo Linking BindingOfObjects
 	$(SILENT) $(LINKCMD)
 	$(POSTBUILDCMDS)
 
@@ -254,7 +254,7 @@ else
 endif
 
 clean:
-	@echo Cleaning binding-of-objects
+	@echo Cleaning BindingOfObjects
 ifeq (posix,$(SHELLTYPE))
 	$(SILENT) rm -f  $(TARGET)
 	$(SILENT) rm -rf $(OBJDIR)
@@ -284,7 +284,7 @@ $(OBJDIR)/Object.o: ../../../src/Object.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
-$(OBJDIR)/binding-of-objects.o: ../../../src/binding-of-objects.cpp
+$(OBJDIR)/BindingOfObjects.o: ../../../src/BindingOfObjects.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 

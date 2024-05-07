@@ -6,7 +6,7 @@
 #ifndef __OBJECT_H__
 #define __OBJECT_H__
 
-#include "binding-of-objects.h"
+#include "BindingOfObjects.h"
 
 /** Object Class
  */

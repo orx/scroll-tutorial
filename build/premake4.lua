@@ -69,10 +69,10 @@ copybase = path.rebase ("..", os.getcwd (), os.getcwd () .. "/" .. destination)
 
 
 --
--- Solution: binding-of-objects
+-- Solution: BindingOfObjects
 --
 
-solution "binding-of-objects"
+solution "BindingOfObjects"
 
     language ("C++")
 
@@ -243,10 +243,10 @@ solution "binding-of-objects"
 
 
 --
--- Project: binding-of-objects
+-- Project: BindingOfObjects
 --
 
-project "binding-of-objects"
+project "BindingOfObjects"
 
     files
     {
@@ -274,7 +274,7 @@ project "binding-of-objects"
     }
 
     configuration {"*Bundle*"}
-        debugargs {"-b", "binding-of-objects.obr"}
+        debugargs {"-b", "BindingOfObjects.obr"}
 
 
 -- Linux

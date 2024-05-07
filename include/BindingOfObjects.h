@@ -1,17 +1,17 @@
 /**
- * @file binding-of-objects.h
+ * @file BindingOfObjects.h
  * @date 4-May-2024
  */
 
-#ifndef __binding_of_objects_H__
-#define __binding_of_objects_H__
+#ifndef __BindingOfObjects_H__
+#define __BindingOfObjects_H__
 
 #define __NO_SCROLLED__
 #include "Scroll.h"
 
 /** Game Class
  */
-class binding_of_objects : public Scroll<binding_of_objects>
+class BindingOfObjects : public Scroll<BindingOfObjects>
 {
 public:
 
@@ -31,4 +31,4 @@ private:
 private:
 };
 
-#endif // __binding_of_objects_H__
+#endif // __BindingOfObjects_H__

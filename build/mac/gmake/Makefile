@@ -6,18 +6,18 @@ ifndef config
 endif
 export config
 
-PROJECTS := binding-of-objects
+PROJECTS := BindingOfObjects
 
 .PHONY: all clean help $(PROJECTS)
 
 all: $(PROJECTS)
 
-binding-of-objects: 
-	@echo "==== Building binding-of-objects ($(config)) ===="
-	@${MAKE} --no-print-directory -C . -f binding-of-objects.make
+BindingOfObjects: 
+	@echo "==== Building BindingOfObjects ($(config)) ===="
+	@${MAKE} --no-print-directory -C . -f BindingOfObjects.make
 
 clean:
-	@${MAKE} --no-print-directory -C . -f binding-of-objects.make clean
+	@${MAKE} --no-print-directory -C . -f BindingOfObjects.make clean
 
 help:
 	@echo "Usage: make [config=name] [target]"
@@ -35,6 +35,6 @@ help:
 	@echo "TARGETS:"
 	@echo "   all (default)"
 	@echo "   clean"
-	@echo "   binding-of-objects"
+	@echo "   BindingOfObjects"
 	@echo ""
 	@echo "For more information, see http://industriousone.com/premake/quick-start"

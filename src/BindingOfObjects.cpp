@@ -1,10 +1,10 @@
 /**
- * @file binding-of-objects.cpp
+ * @file BindingOfObjects.cpp
  * @date 4-May-2024
  */
 
 #define __SCROLL_IMPL__
-#include "binding-of-objects.h"
+#include "BindingOfObjects.h"
 #undef __SCROLL_IMPL__
 
 #include "Object.h"
@@ -25,7 +25,7 @@ __declspec(dllexport) int AmdPowerXpressRequestHighPerformance = 1;
 
 /** Update function, it has been registered to be called every tick of the core clock
  */
-void binding_of_objects::Update(const orxCLOCK_INFO &_rstInfo)
+void BindingOfObjects::Update(const orxCLOCK_INFO &_rstInfo)
 {
   // Should quit?
   if (orxInput_IsActive("Quit"))
@@ -37,7 +37,7 @@ void binding_of_objects::Update(const orxCLOCK_INFO &_rstInfo)
 
 /** Init function, it is called when all orx's modules have been initialized
  */
-orxSTATUS binding_of_objects::Init()
+orxSTATUS BindingOfObjects::Init()
 {
   // Create the scene
   CreateObject("Scene");
@@ -55,7 +55,7 @@ orxSTATUS binding_of_objects::Init()
 
 /** Run function, it should not contain any game logic
  */
-orxSTATUS binding_of_objects::Run()
+orxSTATUS BindingOfObjects::Run()
 {
   // Return orxSTATUS_FAILURE to instruct orx to quit
   return orxSTATUS_SUCCESS;
@@ -63,7 +63,7 @@ orxSTATUS binding_of_objects::Run()
 
 /** Exit function, it is called before exiting from orx
  */
-void binding_of_objects::Exit()
+void BindingOfObjects::Exit()
 {
   // Exit from bundle support
   orxBundle_Exit();
@@ -73,7 +73,7 @@ void binding_of_objects::Exit()
 
 /** BindObjects function, ScrollObject-derived classes are bound to config sections here
  */
-void binding_of_objects::BindObjects()
+void BindingOfObjects::BindObjects()
 {
   // Bind the Object class to the Object config section
   ScrollBindObject<Object>("Object");
@@ -85,14 +85,14 @@ void binding_of_objects::BindObjects()
 
 /** Bootstrap function, it is called before config is initialized, allowing for early resource storage definitions
  */
-orxSTATUS binding_of_objects::Bootstrap() const
+orxSTATUS BindingOfObjects::Bootstrap() const
 {
   // Initialize bundle resource type
   orxBundle_Init();
 
   // Add config storage to find the initial config file
   orxResource_AddStorage(orxCONFIG_KZ_RESOURCE_GROUP, orxBUNDLE_KZ_RESOURCE_STORAGE, orxFALSE);
-  orxResource_AddStorage(orxCONFIG_KZ_RESOURCE_GROUP, orxBUNDLE_KZ_RESOURCE_STORAGE "binding-of-objects.obr", orxFALSE);
+  orxResource_AddStorage(orxCONFIG_KZ_RESOURCE_GROUP, orxBUNDLE_KZ_RESOURCE_STORAGE "BindingOfObjects.obr", orxFALSE);
   orxResource_AddStorage(orxCONFIG_KZ_RESOURCE_GROUP, "../data/config", orxFALSE);
 
   // Return orxSTATUS_FAILURE to prevent orx from loading the default config file
@@ -104,7 +104,7 @@ orxSTATUS binding_of_objects::Bootstrap() const
 int main(int argc, char **argv)
 {
   // Execute our game
-  binding_of_objects::GetInstance().Execute(argc, argv);
+  BindingOfObjects::GetInstance().Execute(argc, argv);
 
   // Done!
   return EXIT_SUCCESS;
