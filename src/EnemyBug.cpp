@@ -3,7 +3,7 @@
 void EnemyBug::OnCreate()
 {
   // Set initial movement direction
-  m_direction = Direction::SOUTH;
+  m_direction = SOUTH;
   // Get movement speed from config value
   m_movementSpeed = orxConfig_GetFloat("MovementSpeed");
   // Get direction change interval from config value
@@ -60,7 +60,7 @@ void EnemyBug::Update(const orxCLOCK_INFO &_rstInfo)
     // Reset time
     m_timeSinceDirectionChange = 0;
     // Pick random number between bounds of Direction enum
-    orxU32 randomNum = orxMath_GetRandomU32(0, static_cast<orxU32>(Direction::LAST));
+    orxU32 randomNum = orxMath_GetRandomU32(0, static_cast<orxU32>(LAST));
     // Update object's direction of movement
     m_direction = static_cast<Direction>(randomNum);
   }
